@@ -11,7 +11,7 @@ output :: (Bool, [Int]) -> [String]
 output (t, xs) = if t then ["YES", unwords $ map show xs] else ["NO"]
 
 solution :: [Int] -> (Bool, [Int])
-solution xs = undefined
-    where sxs = sort xs
+solution xs = if (sxs !! 0) >= (sxs !! 1 + sxs !! 2) then (False, []) else (True, (sxs !! 2):(sxs !! 0):(sxs !! 1):(drop 3 sxs))
+    where sxs = reverse $ sort xs
           l = length xs
 
